@@ -1,0 +1,33 @@
+#this is a Makefile for practicing automation to compile the pre-allergic exercise
+#date 2024-12-22
+
+
+#variables
+CC = gcc
+CFLAG = -g -Wall
+LDFLAG = -lm
+INCFLAG = -Iinclude
+SRCDIR = ./src
+INCDIR = ./include
+OBJDIR = ./built
+TARGET = ./bin/pre_aller
+SRC = $(wildcard $(SRCDIR)/*.c)
+OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, %(SRC))
+
+#all target
+all: $(TARGET)
+
+#link objects to create target
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAG) -o $@ $^ $(LDFLAG)
+
+#compile sources and headers to create objects
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(CC) $(CFLAG) $(INCFLAG) -o $@ -c $<
+
+#clean up built
+clean:
+	rm -rf $(TARGET) $(OBJ)
+
+#phony
+.PHONY: all clean

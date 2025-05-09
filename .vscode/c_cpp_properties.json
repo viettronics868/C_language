@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/c/resistor-color-trio/test-framework",
+                "${workspaceFolder}/c/pre-luhn/include",
+                "${workspaceFolder}/c/test-with-helper/test-framework/**",
+                "${workspaceFolder}/c/test-with-helper/test-framework",
+                "${workspaceFolder}/c/test-with-helper/include",
+                "${workspaceFolder}/c/pre-allergic/include/**"
+            ],
+            "defines": [],
+            "cStandard": "c99",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "/usr/bin/gcc"
+        }
+    ],
+    "version": 4
+}

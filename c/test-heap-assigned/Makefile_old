@@ -1,0 +1,34 @@
+#this is the Makefile for the test-heap-assigned program
+#it will link the files from different directories and compile them
+
+#variables
+CC = gcc
+CFLAGS = -Wall -g
+LDFLAG = -lm
+INCFLAG = -Iinclude
+SRCDIR = ./src
+INCDIR = ./include
+OBJDIR = ./build
+TARGET = ./bin/heap_expansion
+SRC = $(wildcard $(SRCDIR)/*.c)
+OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+
+#all target
+all: $(TARGET)
+
+#linking the object files to create the executable
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAG)
+
+#compiling the source files to create the object files
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(CC) $(CFLAGS) $(INCFLAG) -c $< -o $@
+
+#clean up build files
+clean:
+	rm -rf $(OBJDIR)/*.o $(TARGET)
+
+#phony
+.PHONY: all clean
+
+
