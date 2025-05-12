@@ -1,6 +1,7 @@
 /*until now 2025-05-08, this source code is under maintenance to replace clock.h and time.h
+so I have commented these lines of code to avoid confusing
 */
-
+/*
 #define _XOPEN_SOURCE
 
 #include "clock.h"
@@ -85,3 +86,4 @@ clock_t clock_subtract(clock_t clock, int minute_subtract){
 bool clock_is_equal( clock_t a, clock_t b){
     return (strcmp(a.text, b.text) == 0);
 }
+*/
